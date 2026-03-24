@@ -1,13 +1,12 @@
 my_list = []
 
-for i in range(1, 10):
-    my_list.append(i)
+for x in range(1, 10):
+    my_list.append(x)
 
 print("Original list:", my_list)
-print("Length of list: ", len(my_list))
+print("Length of list:", len(my_list))
 
 y = 1
-
 for x in range(len(my_list)):
     if x < len(my_list):
         if my_list[x] == y:
