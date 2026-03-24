@@ -19,3 +19,10 @@ for x in range(len(my_list)):
 
 print("\nThe list with unique elements only.")
 print(my_list)
+
+Expected Output:
+Original list: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+Length of list: 9
+
+The list with unique elements only.
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
