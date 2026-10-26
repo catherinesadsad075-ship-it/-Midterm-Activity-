@@ -1,0 +1,63 @@
+C++A5 ARDUINO LED CIRCUIT TIMER
+
+const int GREEN_LED = 2;
+const int YELLOW_LED = 1;
+const int RED_LED = 0;
+const int segmentPins[7] = {3, 4, 5, 6, 7, 8, 9};
+const byte digits[10][7] = {
+  {  0, 0, 0, 0, 0, 0, 1 }, 
+  {  1, 0, 0, 1, 1, 1, 1 }, 
+  {  0, 0, 1, 0, 0, 1, 0 }, 
+  {  0, 0, 0, 0, 1, 1, 0 }, 
+  {  1, 0, 0, 1, 1, 0, 0 }, 
+  {  0, 1, 0, 0, 1, 0, 0 }, 
+  {  0, 1, 0, 0, 0, 0, 0 }, 
+  {  0, 0, 0, 1, 1, 1, 1 }, 
+  {  0, 0, 0, 0, 0, 0, 0 }, 
+  {  0, 0, 0, 0, 1, 0, 0 }  
+};
+
+void setup() {
+  pinMode(GREEN_LED, OUTPUT);
+  pinMode(YELLOW_LED, OUTPUT);
+  pinMode(RED_LED, OUTPUT);
+
+  for (int i = 0; i < 7; i++) {
+    pinMode(segmentPins[i], OUTPUT);
+  }
+}
+
+void displayNum(int num) {
+  for (int i = 0; i < 7; i++) {
+    digitalWrite(segmentPins[i], digits[num][i]);
+  }
+}
+
+void loop() {
+  digitalWrite(GREEN_LED, HIGH);
+  digitalWrite(YELLOW_LED, LOW);
+  digitalWrite(RED_LED, LOW);
+  
+  for (int i = 9; i >= 1; i--) {
+    displayNum(i);
+    delay(1000);
+  }
+
+  digitalWrite(GREEN_LED, LOW);
+  digitalWrite(YELLOW_LED, HIGH);
+  digitalWrite(RED_LED, LOW);
+  
+  for (int i = 6; i >= 1; i--) {
+    displayNum(i);
+    delay(1000);
+  }
+
+  digitalWrite(GREEN_LED, LOW);
+  digitalWrite(YELLOW_LED, LOW);
+  digitalWrite(RED_LED, HIGH);
+  
+  for (int i = 6; i >= 1; i--) {
+    displayNum(i);
+    delay(1000);
+  }
+}
