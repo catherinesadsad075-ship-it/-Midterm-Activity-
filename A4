@@ -1,0 +1,28 @@
+C++A4 ARDUINO LED TIMER
+
+const int LED_COUNT = 3;
+const int ledPins[LED_COUNT] = {2, 1, 0};
+
+void allOff(){
+  for (int i = 0; i < LED_COUNT; i++){
+    digitalWrite(ledPins[i], LOW);
+  }
+}
+                 
+void lightOne(int index, int ms){
+  allOff();
+  digitalWrite(ledPins[index], HIGH);
+  delay(ms);
+}
+             
+void setup(){
+  for (int i = 0; i < LED_COUNT; i++){
+    pinMode(ledPins[i], OUTPUT);
+  }
+}
+             
+void loop(){
+  lightOne(0, 9000);
+  lightOne(1, 6000);
+  lightOne(2, 6000);
+}
